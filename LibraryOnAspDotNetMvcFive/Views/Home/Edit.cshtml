@@ -1,0 +1,43 @@
+﻿@model LibraryOnAspDotNetMvcFive.Models.Book
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h2>Изменение выдачи</h2>
+
+@using (Html.BeginForm())
+{
+    <fieldset>
+        <legend>Читатель</legend>
+
+        @Html.HiddenFor(model => model.Id)
+
+        <p>
+            Название книги <br />
+            @Html.EditorFor(model => model.BookTitle)
+        </p>
+
+        <p>
+            Год выпуска <br />
+            @Html.EditorFor(model => model.Year)
+        </p>
+
+        <p>
+            Имя автора  <br />
+            @Html.EditorFor(model => model.Author)
+        </p>
+        <p>
+            Читатель <br />
+            @Html.DropDownListFor(model => model.ReaderId, ViewBag.Readers as SelectList)
+        </p>
+        <p>
+            <input type="submit" value="Сохранить" />
+        </p>
+    </fieldset>
+}
+<div>
+    @Html.ActionLink("Вернуться к списку читателей", "Index")
+</div>

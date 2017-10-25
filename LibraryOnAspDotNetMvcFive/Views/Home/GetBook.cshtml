@@ -1,0 +1,48 @@
+﻿@model LibraryOnAspDotNetMvcFive.Models.Book
+
+@{
+    ViewBag.Title = "Оформить выдачу";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Выдача книги</h2>
+
+@using (Html.BeginForm())
+{
+    <fieldset>
+
+
+        <p>
+            Название книиги <br />
+            @Html.DropDownListFor(model => model.BookTitle, ViewBag.Books as SelectList)
+
+        </p>
+
+        <p>
+            Имя автора  <br />
+            @Html.DropDownListFor(model => model.Author, ViewBag.Author as SelectList)
+        </p>
+
+        <p>
+            Читатель <br />
+            @Html.DropDownListFor(model => model.ReaderId, ViewBag.Readers as SelectList)
+        </p>
+
+        <p>
+            Состояние выдачи  <br />
+            @Html.EditorFor(model => model.SupplyState.IssueStatus)
+        </p>
+
+        <p>
+            Год выпуска  <br />
+            @Html.DropDownListFor(model => model.Year, ViewBag.Years as SelectList)
+        </p>
+
+        <p>
+            <input type="submit" value="Выдать книгу" />
+        </p>
+    </fieldset>
+}
+<div>
+    @Html.ActionLink("К списку книг", "Index")
+</div>

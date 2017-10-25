@@ -1,0 +1,39 @@
+﻿@model LibraryOnAspDotNetMvcFive.Models.Reader
+
+@{
+    ViewBag.Title = "Читатели";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h2>Добавление нового читателя</h2>
+
+@using (Html.BeginForm())
+{
+    <fieldset>
+
+
+        <p>
+            Имя <br />
+            @Html.EditorFor(model => model.FullName)
+        </p>
+
+        <p>
+            Адрес <br />
+            @Html.EditorFor(model => model.Addres)
+        </p>
+
+        <p>
+            Норме телефона  <br />
+            @Html.EditorFor(model => model.Phone)
+        </p>
+
+
+        <p>
+            <input type="submit" value="Добавить читателя" />
+        </p>
+    </fieldset>
+}
+<div>
+    @Html.ActionLink("К списку книг", "Index")
+</div>

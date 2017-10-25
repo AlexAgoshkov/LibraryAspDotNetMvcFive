@@ -1,0 +1,31 @@
+﻿@model IEnumerable<LibraryOnAspDotNetMvcFive.Models.Book>
+@{ 
+    ViewBag.Title = "Книги";
+}
+
+<table>
+    <tr>
+        <th>Название книги</th>
+        <th>Автор</th>
+        <th>Год</th>
+
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.BookTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Author)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Year)
+            </td>
+
+        </tr>
+    }
+</table>
